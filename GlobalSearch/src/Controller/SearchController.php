@@ -1,5 +1,5 @@
 <?php
-namespace Application\Controller;
+namespace GlobalSearch\Controller;
 
 use Zend\Mvc\Controller\AbstractActionController;
 use Zend\Session\SessionManager;

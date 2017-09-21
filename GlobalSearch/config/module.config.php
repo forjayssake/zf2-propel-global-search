@@ -20,6 +20,7 @@ return array(
 		'show_search' => true,
 		'search_namespace' => null,
 		'search_input_prompt' => 'Enter Search',
+		'adapter' => 'GlobalSearch\Adapter\PropelAdapter',
 		'search_objects' => [
 			'User' => [
 				'route' => 'users/view',
@@ -31,4 +32,16 @@ return array(
 		],
 	],
 
+    // partial and view helper reference
+    'view_manager' => array(
+        'display_not_found_reason' => true,
+        'display_exceptions'       => true,
+        'doctype'                  => 'HTML5',
+        'not_found_template'       => 'error/404',
+        'exception_template'       => 'error/index',
+        'template_map' => array(
+            'partial/global-search-results' => __DIR__ . '/../view/partial/global-search-results.phtml',
+            'partial/global-search-ui' => __DIR__ . '/../view/partial/global-search-ui.phtml',
+        ),
+    ) ,
 );

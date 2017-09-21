@@ -29,7 +29,6 @@ class IndexController extends AbstractActionController
             $searchNamespace = $config['global_search']['search_namespace'];
             $searchResults = [];
 
-            $user = User::getLoggedIn();
             foreach($searchObjects as $objectType => $details)
             {
                 $values = $this->fetchSearchData($objectType, $searchNamespace, $searchValue, $details['fields']);
@@ -143,7 +142,6 @@ class IndexController extends AbstractActionController
                 $fieldValue = $object->$method();
                 $objectResult[$object->getPrimaryKey()][$fieldName] = $fieldValue;
                 $results[] = is_null($fieldValue) ? '<span class="badge alert-warning">Unknown</span>' : $fieldValue;
-
             }
 
             $resultString .= implode(', ', $results);

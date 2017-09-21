@@ -1,0 +1,23 @@
+<?php if (isset($config['global_search']) && $config['global_search']['show_search'] === true) : ?>
+    <form id="GlobalSearchForm" class="navbar-form navbar-left" role="search" method="post" action="<?php echo $this->url('global-search', ['controller' => 'IndexController']); ?>">
+        <div class="form-group">
+            <input type="text" class="form-control" placeholder="Search Botanical" id="global-search-text">
+        </div>
+        <button type="submit" class="btn btn-default" id="global-search" disabled="true"><i class="fa fa-search"></i></button>
+    </form>
+<?php endif; ?>
+
+<div class="modal fade globalsearchpleasewaitmodal " id="GlobalSearchPleaseWaitModal">
+    <div class="modal-dialog globalsearchpleasewaitmodal_dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true" tabindex="-1">&times;</button>
+                <h3>Please Wait</h3>
+            </div>
+            <div class="modal-body">
+                <?php echo $this->partial('partial/global-search-results'); ?>
+            </div>
+            <div class="modal-footer"></div>
+        </div>
+    </div>
+</div>
